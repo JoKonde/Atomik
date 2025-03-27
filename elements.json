@@ -1,0 +1,828 @@
+[
+    {
+        "symbol": "H",
+        "name": "Hydrogène",
+        "atomic_number": 1,
+        "color": "#FF6666",
+        "category": "diatomic_nonmetal"
+    },
+    {
+        "symbol": "He",
+        "name": "Hélium",
+        "atomic_number": 2,
+        "color": "#D9FFFF",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "Li",
+        "name": "Lithium",
+        "atomic_number": 3,
+        "color": "#CC80FF",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Be",
+        "name": "Béryllium",
+        "atomic_number": 4,
+        "color": "#C2FF00",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "B",
+        "name": "Bore",
+        "atomic_number": 5,
+        "color": "#FFB5B5",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "C",
+        "name": "Carbone",
+        "atomic_number": 6,
+        "color": "#909090",
+        "category": "polyatomic_nonmetal"
+    },
+    {
+        "symbol": "N",
+        "name": "Azote",
+        "atomic_number": 7,
+        "color": "#3050F8",
+        "category": "diatomic_nonmetal"
+    },
+    {
+        "symbol": "O",
+        "name": "Oxygène",
+        "atomic_number": 8,
+        "color": "#FF0D0D",
+        "category": "diatomic_nonmetal"
+    },
+    {
+        "symbol": "F",
+        "name": "Fluor",
+        "atomic_number": 9,
+        "color": "#90E050",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Ne",
+        "name": "Néon",
+        "atomic_number": 10,
+        "color": "#B3E3F5",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "Na",
+        "name": "Sodium",
+        "atomic_number": 11,
+        "color": "#AB5CF2",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Mg",
+        "name": "Magnésium",
+        "atomic_number": 12,
+        "color": "#8AFF00",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "Al",
+        "name": "Aluminium",
+        "atomic_number": 13,
+        "color": "#BFA6A6",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Si",
+        "name": "Silicium",
+        "atomic_number": 14,
+        "color": "#F0C8A0",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "P",
+        "name": "Phosphore",
+        "atomic_number": 15,
+        "color": "#FF8000",
+        "category": "polyatomic_nonmetal"
+    },
+    {
+        "symbol": "S",
+        "name": "Soufre",
+        "atomic_number": 16,
+        "color": "#FFFF30",
+        "category": "polyatomic_nonmetal"
+    },
+    {
+        "symbol": "Cl",
+        "name": "Chlore",
+        "atomic_number": 17,
+        "color": "#1FF01F",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Ar",
+        "name": "Argon",
+        "atomic_number": 18,
+        "color": "#80D1E3",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "K",
+        "name": "Potassium",
+        "atomic_number": 19,
+        "color": "#8F40D4",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Ca",
+        "name": "Calcium",
+        "atomic_number": 20,
+        "color": "#3DFF00",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "Sc",
+        "name": "Scandium",
+        "atomic_number": 21,
+        "color": "#E6E6E6",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ti",
+        "name": "Titane",
+        "atomic_number": 22,
+        "color": "#BFC2C7",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "V",
+        "name": "Vanadium",
+        "atomic_number": 23,
+        "color": "#A6A6AB",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Cr",
+        "name": "Chrome",
+        "atomic_number": 24,
+        "color": "#8A99C7",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Mn",
+        "name": "Manganèse",
+        "atomic_number": 25,
+        "color": "#9C7AC7",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Fe",
+        "name": "Fer",
+        "atomic_number": 26,
+        "color": "#E06633",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Co",
+        "name": "Cobalt",
+        "atomic_number": 27,
+        "color": "#F090A0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ni",
+        "name": "Nickel",
+        "atomic_number": 28,
+        "color": "#50D050",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Cu",
+        "name": "Cuivre",
+        "atomic_number": 29,
+        "color": "#C88033",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Zn",
+        "name": "Zinc",
+        "atomic_number": 30,
+        "color": "#7D80B0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ga",
+        "name": "Gallium",
+        "atomic_number": 31,
+        "color": "#C28F8F",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Ge",
+        "name": "Germanium",
+        "atomic_number": 32,
+        "color": "#668F8F",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "As",
+        "name": "Arsenic",
+        "atomic_number": 33,
+        "color": "#BD80E3",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "Se",
+        "name": "Sélénium",
+        "atomic_number": 34,
+        "color": "#FFA100",
+        "category": "polyatomic_nonmetal"
+    },
+    {
+        "symbol": "Br",
+        "name": "Brome",
+        "atomic_number": 35,
+        "color": "#A62929",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Kr",
+        "name": "Krypton",
+        "atomic_number": 36,
+        "color": "#5CB8D1",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "Rb",
+        "name": "Rubidium",
+        "atomic_number": 37,
+        "color": "#702EB0",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Sr",
+        "name": "Strontium",
+        "atomic_number": 38,
+        "color": "#00FF00",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "Y",
+        "name": "Yttrium",
+        "atomic_number": 39,
+        "color": "#94FFFF",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Zr",
+        "name": "Zirconium",
+        "atomic_number": 40,
+        "color": "#94E0E0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Nb",
+        "name": "Niobium",
+        "atomic_number": 41,
+        "color": "#73C2C9",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Mo",
+        "name": "Molybdène",
+        "atomic_number": 42,
+        "color": "#54B5B5",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Tc",
+        "name": "Technétium",
+        "atomic_number": 43,
+        "color": "#3B9E9E",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ru",
+        "name": "Ruthénium",
+        "atomic_number": 44,
+        "color": "#248F8F",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Rh",
+        "name": "Rhodium",
+        "atomic_number": 45,
+        "color": "#0A7D8C",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Pd",
+        "name": "Palladium",
+        "atomic_number": 46,
+        "color": "#006985",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ag",
+        "name": "Argent",
+        "atomic_number": 47,
+        "color": "#C0C0C0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Cd",
+        "name": "Cadmium",
+        "atomic_number": 48,
+        "color": "#FFD98F",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "In",
+        "name": "Indium",
+        "atomic_number": 49,
+        "color": "#A67573",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Sn",
+        "name": "Étain",
+        "atomic_number": 50,
+        "color": "#668080",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Sb",
+        "name": "Antimoine",
+        "atomic_number": 51,
+        "color": "#9E63B5",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "Te",
+        "name": "Tellure",
+        "atomic_number": 52,
+        "color": "#D47A00",
+        "category": "metalloid"
+    },
+    {
+        "symbol": "I",
+        "name": "Iode",
+        "atomic_number": 53,
+        "color": "#940094",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Xe",
+        "name": "Xénon",
+        "atomic_number": 54,
+        "color": "#429EB0",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "Cs",
+        "name": "Césium",
+        "atomic_number": 55,
+        "color": "#57178F",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Ba",
+        "name": "Baryum",
+        "atomic_number": 56,
+        "color": "#00C900",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "La",
+        "name": "Lanthane",
+        "atomic_number": 57,
+        "color": "#70D4FF",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Ce",
+        "name": "Cérium",
+        "atomic_number": 58,
+        "color": "#FFFFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Pr",
+        "name": "Praséodyme",
+        "atomic_number": 59,
+        "color": "#D9FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Nd",
+        "name": "Néodyme",
+        "atomic_number": 60,
+        "color": "#C7FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Pm",
+        "name": "Prométhium",
+        "atomic_number": 61,
+        "color": "#A3FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Sm",
+        "name": "Samarium",
+        "atomic_number": 62,
+        "color": "#8FFFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Eu",
+        "name": "Europium",
+        "atomic_number": 63,
+        "color": "#61FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Gd",
+        "name": "Gadolinium",
+        "atomic_number": 64,
+        "color": "#45FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Tb",
+        "name": "Terbium",
+        "atomic_number": 65,
+        "color": "#30FFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Dy",
+        "name": "Dysprosium",
+        "atomic_number": 66,
+        "color": "#1FFFC7",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Ho",
+        "name": "Holmium",
+        "atomic_number": 67,
+        "color": "#00FF9C",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Er",
+        "name": "Erbium",
+        "atomic_number": 68,
+        "color": "#00E675",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Tm",
+        "name": "Thulium",
+        "atomic_number": 69,
+        "color": "#00D452",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Yb",
+        "name": "Ytterbium",
+        "atomic_number": 70,
+        "color": "#00BF38",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Lu",
+        "name": "Lutécium",
+        "atomic_number": 71,
+        "color": "#00AB24",
+        "category": "lanthanide"
+    },
+    {
+        "symbol": "Hf",
+        "name": "Hafnium",
+        "atomic_number": 72,
+        "color": "#4DC2FF",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ta",
+        "name": "Tantale",
+        "atomic_number": 73,
+        "color": "#4DA6FF",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "W",
+        "name": "Tungstène",
+        "atomic_number": 74,
+        "color": "#2194D6",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Re",
+        "name": "Rhénium",
+        "atomic_number": 75,
+        "color": "#267DAB",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Os",
+        "name": "Osmium",
+        "atomic_number": 76,
+        "color": "#266696",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ir",
+        "name": "Iridium",
+        "atomic_number": 77,
+        "color": "#175487",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Pt",
+        "name": "Platine",
+        "atomic_number": 78,
+        "color": "#D0D0E0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Au",
+        "name": "Or",
+        "atomic_number": 79,
+        "color": "#FFD123",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Hg",
+        "name": "Mercure",
+        "atomic_number": 80,
+        "color": "#B8B8D0",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Tl",
+        "name": "Thallium",
+        "atomic_number": 81,
+        "color": "#A6544D",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Pb",
+        "name": "Plomb",
+        "atomic_number": 82,
+        "color": "#575961",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Bi",
+        "name": "Bismuth",
+        "atomic_number": 83,
+        "color": "#9E4FB5",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Po",
+        "name": "Polonium",
+        "atomic_number": 84,
+        "color": "#AB5C00",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "At",
+        "name": "Astate",
+        "atomic_number": 85,
+        "color": "#754F45",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Rn",
+        "name": "Radon",
+        "atomic_number": 86,
+        "color": "#428296",
+        "category": "noble_gas"
+    },
+    {
+        "symbol": "Fr",
+        "name": "Francium",
+        "atomic_number": 87,
+        "color": "#420066",
+        "category": "alkali_metal"
+    },
+    {
+        "symbol": "Ra",
+        "name": "Radium",
+        "atomic_number": 88,
+        "color": "#007D00",
+        "category": "alkaline_earth_metal"
+    },
+    {
+        "symbol": "Ac",
+        "name": "Actinium",
+        "atomic_number": 89,
+        "color": "#70ABFA",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Th",
+        "name": "Thorium",
+        "atomic_number": 90,
+        "color": "#00BAFF",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Pa",
+        "name": "Protactinium",
+        "atomic_number": 91,
+        "color": "#00A1FF",
+        "category": "actinide"
+    },
+    {
+        "symbol": "U",
+        "name": "Uranium",
+        "atomic_number": 92,
+        "color": "#008FFF",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Np",
+        "name": "Neptunium",
+        "atomic_number": 93,
+        "color": "#0080FF",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Pu",
+        "name": "Plutonium",
+        "atomic_number": 94,
+        "color": "#006BFF",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Am",
+        "name": "Américium",
+        "atomic_number": 95,
+        "color": "#545CF2",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Cm",
+        "name": "Curium",
+        "atomic_number": 96,
+        "color": "#785CE3",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Bk",
+        "name": "Berkélium",
+        "atomic_number": 97,
+        "color": "#8A4FE3",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Cf",
+        "name": "Californium",
+        "atomic_number": 98,
+        "color": "#A136D4",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Es",
+        "name": "Einsteinium",
+        "atomic_number": 99,
+        "color": "#B31FD4",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Fm",
+        "name": "Fermium",
+        "atomic_number": 100,
+        "color": "#B31FBA",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Md",
+        "name": "Mendélévium",
+        "atomic_number": 101,
+        "color": "#B30DA6",
+        "category": "actinide"
+    },
+    {
+        "symbol": "No",
+        "name": "Nobélium",
+        "atomic_number": 102,
+        "color": "#BD0D87",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Lr",
+        "name": "Lawrencium",
+        "atomic_number": 103,
+        "color": "#C70066",
+        "category": "actinide"
+    },
+    {
+        "symbol": "Rf",
+        "name": "Rutherfordium",
+        "atomic_number": 104,
+        "color": "#CC0059",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Db",
+        "name": "Dubnium",
+        "atomic_number": 105,
+        "color": "#D1004F",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Sg",
+        "name": "Seaborgium",
+        "atomic_number": 106,
+        "color": "#D90045",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Bh",
+        "name": "Bohrium",
+        "atomic_number": 107,
+        "color": "#E00038",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Hs",
+        "name": "Hassium",
+        "atomic_number": 108,
+        "color": "#E6002E",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Mt",
+        "name": "Meitnérium",
+        "atomic_number": 109,
+        "color": "#EB0026",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Ds",
+        "name": "Darmstadtium",
+        "atomic_number": 110,
+        "color": "#FF0021",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Rg",
+        "name": "Roentgenium",
+        "atomic_number": 111,
+        "color": "#FF0018",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Cn",
+        "name": "Copernicium",
+        "atomic_number": 112,
+        "color": "#FF0010",
+        "category": "transition_metal"
+    },
+    {
+        "symbol": "Nh",
+        "name": "Nihonium",
+        "atomic_number": 113,
+        "color": "#FF0008",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Fl",
+        "name": "Flerovium",
+        "atomic_number": 114,
+        "color": "#FF0000",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Mc",
+        "name": "Moscovium",
+        "atomic_number": 115,
+        "color": "#FF0000",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Lv",
+        "name": "Livermorium",
+        "atomic_number": 116,
+        "color": "#FF0000",
+        "category": "post_transition_metal"
+    },
+    {
+        "symbol": "Ts",
+        "name": "Tennesse",
+        "atomic_number": 117,
+        "color": "#FF0000",
+        "category": "halogen"
+    },
+    {
+        "symbol": "Og",
+        "name": "Oganesson",
+        "atomic_number": 118,
+        "color": "#FF0000",
+        "category": "noble_gas"
+    }
+      ]
