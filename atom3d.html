@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation 3D de l'atome de Na</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <!-- Le rendu se fera sur tout l'écran ! -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/FontLoader.js"></script>
+  <script src="https://threejs.org/examples/js/geometries/TextGeometry.js"></script>
+  <script>
+    // Création de la scène, de la caméra et du renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Création du noyau (affichant "Na")
+    const nucleusGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const nucleusMaterial = new THREE.MeshBasicMaterial({ color: 0xffd700 });
+    const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
+    scene.add(nucleus);
+
+    // Ajout d'une étiquette "Na" sur le noyau (chargement de la police)
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+      const textGeometry = new THREE.TextGeometry('Na', {
+        font: font,
+        size: 0.2,
+        height: 0.02
+      });
+      const textMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+      textMesh.position.set(-0.15, -0.15, 0.55);
+      nucleus.add(textMesh);
+    });
+
+    // Définition des orbites (radii) et création des électrons
+    const orbitRadii = [1.5, 3, 4.5];  // trois niveaux d'énergie : 2, 8, et 1 électron(s)
+    const electrons = [];
+
+    // Fonction pour créer un électron sur une orbite donnée
+    function createElectron(orbitIndex, angle) {
+      const electronGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+      const electronMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+      const electron = new THREE.Mesh(electronGeometry, electronMaterial);
+      electron.userData = {
+        orbitIndex: orbitIndex,
+        angle: angle,
+        orbitRadius: orbitRadii[orbitIndex]
+      };
+      scene.add(electron);
+      electrons.push(electron);
+    }
+
+    // Orbit 0 : 2 électrons
+    for (let i = 0; i < 2; i++) {
+      createElectron(0, (i/2) * Math.PI * 2);
+    }
+    // Orbit 1 : 8 électrons
+    for (let i = 0; i < 8; i++) {
+      createElectron(1, (i/8) * Math.PI * 2);
+    }
+    // Orbit 2 : 1 électron
+    createElectron(2, 0);
+
+    // Création visuelle des orbites
+    const orbitMaterial = new THREE.LineBasicMaterial({ color: 0x888888 });
+    orbitRadii.forEach(radius => {
+      const orbitCurve = new THREE.EllipseCurve(
+        0, 0,            // centre de l'ellipse
+        radius, radius,   // xRadius et yRadius
+        0, 2 * Math.PI,   // début et fin de l'arc
+        false,            // sens antihoraire
+        0                 // rotation
+      );
+      const points = orbitCurve.getPoints(64);
+      const orbitGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const orbitLine = new THREE.Line(orbitGeometry, orbitMaterial);
+      orbitLine.rotation.x = Math.PI / 2; // orienter l'orbite à l'horizontale
+      scene.add(orbitLine);
+    });
+
+    // Positionnement de la caméra
+    camera.position.z = 8;
+
+    // Boucle d'animation
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Animation des électrons
+      electrons.forEach(electron => {
+        electron.userData.angle += 0.01;  // vitesse de rotation
+        const a = electron.userData.angle;
+        const r = electron.userData.orbitRadius;
+        electron.position.x = r * Math.cos(a);
+        electron.position.y = r * Math.sin(a);
+        // Pour une touche 3D, on fait varier légèrement la position en z
+        electron.position.z = 0.2 * Math.sin(a * 2);
+      });
+
+      // Rotation douce de la scène pour admirer l'atome sous tous les angles
+      scene.rotation.y += 0.005;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Gestion du redimensionnement de la fenêtre
+    window.addEventListener('resize', function() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

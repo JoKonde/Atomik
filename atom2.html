@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Atome de Na 3D - Noyau Volcanique</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/FontLoader.js"></script>
+  <script src="https://threejs.org/examples/js/geometries/TextGeometry.js"></script>
+  <script>
+    // Création de la scène, de la caméra et du renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Groupe pour le noyau
+    const nucleusGroup = new THREE.Group();
+    scene.add(nucleusGroup);
+
+    // Création du noyau (sphère blanche, transparente)
+    const nucleusGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const nucleusMaterial = new THREE.MeshBasicMaterial({ 
+      color: 0xffffff, 
+      transparent: true, 
+      opacity: 0.6 
+    });
+    const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
+    nucleusGroup.add(nucleus);
+
+    // Ajout d'une étiquette "Na" sur le noyau
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+      const textGeometry = new THREE.TextGeometry('Na', {
+        font: font,
+        size: 0.2,
+        height: 0.02
+      });
+      const textMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+      textMesh.position.set(-0.15, -0.15, 0.55);
+      nucleus.add(textMesh);
+    });
+
+    // Création d'un système de particules pour simuler une éruption volcanique à l'intérieur du noyau
+    const particleCount = 200;
+    const particlesGeometry = new THREE.BufferGeometry();
+    const positions = [];
+    const velocities = [];
+    for (let i = 0; i < particleCount; i++) {
+      // Position initiale aléatoire dans une petite sphère autour du centre du noyau
+      const r = Math.random() * 0.3;
+      const theta = Math.random() * 2 * Math.PI;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const x = r * Math.sin(phi) * Math.cos(theta);
+      const y = r * Math.sin(phi) * Math.sin(theta);
+      const z = r * Math.cos(phi);
+      positions.push(x, y, z);
+      // Vitesse initiale dirigée vers l'extérieur
+      const speed = 0.005 + Math.random() * 0.005;
+      velocities.push(
+        speed * Math.sin(phi) * Math.cos(theta),
+        speed * Math.sin(phi) * Math.sin(theta),
+        speed * Math.cos(phi)
+      );
+    }
+    particlesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: 0xff4500,
+      size: 0.05,
+      transparent: true,
+      opacity: 0.8
+    });
+    const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
+    nucleusGroup.add(particleSystem);
+
+    // Définition des orbites et création des électrons
+    const orbitRadii = [1.5, 3, 4.5];  // trois niveaux d'énergie
+    const electrons = [];
+
+    function createElectron(orbitIndex, angle) {
+      const electronGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+      const electronMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+      const electron = new THREE.Mesh(electronGeometry, electronMaterial);
+      electron.userData = {
+        orbitIndex: orbitIndex,
+        angle: angle,
+        orbitRadius: orbitRadii[orbitIndex]
+      };
+      scene.add(electron);
+      electrons.push(electron);
+    }
+
+    // Orbit 0 : 2 électrons
+    for (let i = 0; i < 2; i++) {
+      createElectron(0, (i/2) * Math.PI * 2);
+    }
+    // Orbit 1 : 8 électrons
+    for (let i = 0; i < 8; i++) {
+      createElectron(1, (i/8) * Math.PI * 2);
+    }
+    // Orbit 2 : 1 électron
+    createElectron(2, 0);
+
+    // Création visuelle des orbites
+    const orbitMaterial = new THREE.LineBasicMaterial({ color: 0x888888 });
+    orbitRadii.forEach(radius => {
+      const orbitCurve = new THREE.EllipseCurve(
+        0, 0,            
+        radius, radius,   
+        0, 2 * Math.PI,   
+        false,            
+        0                 
+      );
+      const points = orbitCurve.getPoints(64);
+      const orbitGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const orbitLine = new THREE.Line(orbitGeometry, orbitMaterial);
+      orbitLine.rotation.x = Math.PI / 2; 
+      scene.add(orbitLine);
+    });
+
+    // Positionnement de la caméra
+    camera.position.z = 8;
+
+    // Animation du système de particules (éruption volcanique)
+    function updateParticles() {
+      const positions = particleSystem.geometry.attributes.position.array;
+      for (let i = 0; i < particleCount; i++) {
+        const index = i * 3;
+        // Mise à jour de la position selon la vélocité
+        positions[index]     += velocities[i * 3];
+        positions[index + 1] += velocities[i * 3 + 1];
+        positions[index + 2] += velocities[i * 3 + 2];
+
+        // Si la particule s'éloigne trop, on la réinitialise vers le centre
+        const distance = Math.sqrt(
+          positions[index] ** 2 +
+          positions[index + 1] ** 2 +
+          positions[index + 2] ** 2
+        );
+        if (distance > 0.5) {
+          positions[index] = (Math.random() - 0.5) * 0.1;
+          positions[index + 1] = (Math.random() - 0.5) * 0.1;
+          positions[index + 2] = (Math.random() - 0.5) * 0.1;
+        }
+      }
+      particleSystem.geometry.attributes.position.needsUpdate = true;
+    }
+
+    // Boucle d'animation
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Animation des particules
+      updateParticles();
+
+      // Animation des électrons
+      electrons.forEach(electron => {
+        electron.userData.angle += 0.01;  // vitesse de rotation
+        const a = electron.userData.angle;
+        const r = electron.userData.orbitRadius;
+        electron.position.x = r * Math.cos(a);
+        electron.position.y = r * Math.sin(a);
+        electron.position.z = 0.2 * Math.sin(a * 2);
+      });
+
+      // Rotation de la scène pour une vue dynamique
+      scene.rotation.y += 0.005;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Gestion du redimensionnement
+    window.addEventListener('resize', function() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
